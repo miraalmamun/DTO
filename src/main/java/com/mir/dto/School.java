@@ -3,14 +3,12 @@ package com.mir.dto;
 
 import jakarta.persistence.*;
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
-@Entity(name = "School")
-@Getter
 @Setter
-@SuperBuilder
+@Getter
+@Entity(name = "School")
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "school")
@@ -26,4 +24,16 @@ public class School {
     @OneToMany(mappedBy = "school")
     private List<Student> students;
 
+    public School(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "School{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", students=" + students +
+                '}';
+    }
 }

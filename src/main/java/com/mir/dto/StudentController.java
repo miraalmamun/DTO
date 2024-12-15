@@ -19,10 +19,13 @@ public class StudentController {
 
     @PostMapping("/students")
     public Student save(@RequestBody Student student) {
-        return studentRepository.save(student);
+        System.out.println("Saving student: " + student);
+        Student savedStudent = studentRepository.save(student);
+        System.out.println("Saved student: " + savedStudent);
+        return savedStudent;
     }
 
-    @GetMapping("/schools")
+    @GetMapping("/students")
     public List<Student> findAll() {
         return studentRepository.findAll();
     }
