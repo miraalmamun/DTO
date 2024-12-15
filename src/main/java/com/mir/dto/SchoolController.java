@@ -17,12 +17,19 @@ public class SchoolController {
 
     @PostMapping("/schools")
     public School save(@RequestBody School school) {
-        return schoolRepository.save(school);
+        System.out.println("Saving School: " + school);
+        School savedSchool = schoolRepository.save(school);
+        System.out.println("Saved School: " + savedSchool);
+        return savedSchool;
     }
 
     @GetMapping("/schools")
     public List<School> findAll() {
         return schoolRepository.findAll();
     }
+
+
+
+
 
 }
